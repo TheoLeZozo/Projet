@@ -5,12 +5,9 @@ namespace Services;
 use Models\Personnage;
 use Models\PersonnageDAO;
 
-<<<<<<< HEAD
 /**
  * Service pour gérer les opérations liées aux personnages
  */
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 class PersonnageService
 {
     private PersonnageDAO $personnageDAO;

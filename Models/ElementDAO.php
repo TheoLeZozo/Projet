@@ -2,7 +2,6 @@
 
 namespace Models;
 
-<<<<<<< HEAD
 /**
  * Class ElementDAO
  *
@@ -16,10 +15,6 @@ class ElementDAO extends BasePDODAO
         return (int)$stmt->fetchColumn();
     }
 
-=======
-class ElementDAO extends BasePDODAO
-{
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function create(Element $element): int
     {
         $sql = "INSERT INTO element (name, url_img) VALUES (:name, :url_img)";

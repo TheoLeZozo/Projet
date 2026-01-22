@@ -2,12 +2,9 @@
 
 namespace Services;
 
-<<<<<<< HEAD
 /**
  * Service pour gérer la journalisation des opérations CRUD
  */
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 final class Logger
 {
     // Nom des fichiers: MarioLog_MM_YYYY.log

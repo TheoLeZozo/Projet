@@ -10,24 +10,17 @@
 
 <canvas id="bg-stars"></canvas>
 
-<<<<<<< HEAD
 <nav class="main-nav">
     <a href="index.php?action=home">Accueil</a>
 
     <?php if (\Services\AuthService::isLogged()): ?>
         <a href="index.php?action=my-collection">Ma collection</a>
         <a href="index.php?action=protected">Page protégée</a>
-=======
-<header class="cyber-header">
-    <nav class="main-nav">
-        <a href="index.php?action=home">Accueil</a>
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
         <a href="index.php?action=add-perso">Ajouter un personnage</a>
         <a href="index.php?action=add-origin">Ajouter une origine</a>
         <a href="index.php?action=add-element">Ajouter un élément</a>
         <a href="index.php?action=add-unitclass">Ajouter une classe</a>
         <a href="index.php?action=logs">Logs</a>
-<<<<<<< HEAD
 
         <a href="index.php?action=logout">
             Logout (<?= htmlspecialchars($_SESSION['user']['username'] ?? 'user') ?>)
@@ -45,12 +38,6 @@
 <?php if ($flash): ?>
   <?= $this->insert('message', ['message' => $flash]) ?>
 <?php endif; ?>
-=======
-        <a href="index.php?action=login">Login</a>
-    </nav>
-</header>
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 <main class="cyber-main">
     <?= $this->section('content') ?>
 </main>
@@ -59,7 +46,6 @@
         Mario Wiki • Projet PHP
 </footer>
 
-<<<<<<< HEAD
 <script>
 
 const canvas = document.getElementById("bg-stars");
@@ -75,22 +61,10 @@ function resize() {
     canvas.style.width = w + "px";
     canvas.style.height = h + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-=======
-<!-- 🌌 BACKGROUND STARS -->
-<script>
-const canvas = document.getElementById("bg-stars");
-const ctx = canvas.getContext("2d");
-
-let w, h;
-function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 }
 window.addEventListener("resize", resize);
 resize();
 
-<<<<<<< HEAD
 let scrollY = window.scrollY || 0;
 window.addEventListener("scroll", () => { scrollY = window.scrollY || 0; }, { passive: true });
 
@@ -248,35 +222,6 @@ function tick(now) {
 requestAnimationFrame(tick);
 </script>
 
-=======
-const stars = Array.from({ length: 120 }, () => ({
-    x: Math.random() * w,
-    y: Math.random() * h,
-    z: Math.random() * 0.8 + 0.2,
-    r: Math.random() * 1.5 + 0.5
-}));
-
-let scrollOffset = 0;
-window.addEventListener("scroll", () => {
-    scrollOffset = window.scrollY * 0.15;
-});
-
-function draw() {
-    ctx.clearRect(0, 0, w, h);
-    for (const s of stars) {
-        const y = (s.y + scrollOffset * s.z) % h;
-        ctx.beginPath();
-        ctx.arc(s.x, y, s.r * s.z * 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(120,180,255,${0.6 * s.z})`;
-        ctx.fill();
-    }
-    requestAnimationFrame(draw);
-}
-draw();
-</script>
-
-<!-- 🧊 TILT 3D -->
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 <script>
 document.querySelectorAll(".personnage-card").forEach(card => {
     card.addEventListener("mousemove", e => {
@@ -324,11 +269,5 @@ buttons.forEach(btn => {
     });
 });
 </script>
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 </body>
 </html>

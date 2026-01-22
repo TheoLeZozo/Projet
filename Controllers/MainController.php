@@ -7,7 +7,6 @@ use Models\OriginDAO;
 use Models\ElementDAO;
 use Models\UnitClassDAO;
 use Services\PersonnageService;
-<<<<<<< HEAD
 use Services\Logger;
 use Helpers\Flash;
 use Helpers\Message as HMessage;
@@ -18,12 +17,6 @@ use Helpers\Message as HMessage;
  * gérer les sessions utilisateurs, et traiter les demandes liées aux personnages, origines,
  * éléments et classes d'unités.
  */
-=======
-use Models\Message;
-use Services\Logger;
-
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 
 class MainController
 {
@@ -38,7 +31,6 @@ class MainController
         $service = new PersonnageService();
         $listPersonnage = $service->getAll();
 
-<<<<<<< HEAD
         $ownedIds = [];
         if (\Services\AuthService::isLogged()) {
             $userId = (string)($_SESSION['user']['id'] ?? '');
@@ -160,41 +152,26 @@ class MainController
     * @return void
     */
 
-=======
-        echo $this->templates->render('home', [
-            'gameName' => 'Mario Wiki - Home',
-            'listPersonnage' => $listPersonnage,
-            'message' => $message
-        ]);
-    }
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function index(?string $message = null): void
     {
         $this->home($message);
     }
 
-<<<<<<< HEAD
     /* Lit le contenu d'un fichier de log
     * @param string $file Nom du fichier de log à lire
     * @return string Contenu du fichier de log
     */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public static function readFile(string $file): string
     {
         return self::read($file);
     }
 
-<<<<<<< HEAD
     /* Ajoute un nouveau personnage à la base de données
     * @param array $params Données du formulaire d'ajout de personnage
     * @return void
     */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function addPerso(array $params): void
     {
         // 1. Sécurité minimale
@@ -204,22 +181,9 @@ class MainController
             empty($params['metier']) ||
             empty($params['elements'])
         ) {
-<<<<<<< HEAD
             Flash::setFromString('Champs manquants.', HMessage::COLOR_ERROR, 'Erreur');
             header('Location: index.php?action=add-perso');
             exit;
-=======
-            $message = new Message(
-            'Erreur',
-            'Champs manquants',
-            'error'
-        );
-
-        echo $this->templates->render('message', [
-            'message' => $message
-        ]);
-        return; 
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
         }
 
         // 2. Création du personnage
@@ -241,7 +205,6 @@ class MainController
         }
 
         // 5. Retour visuel
-<<<<<<< HEAD
         Flash::setFromString('Personnage ajouté avec succès.', HMessage::COLOR_SUCCESS, 'Succès');
         header('Location: index.php?action=home');
         exit;
@@ -251,20 +214,6 @@ class MainController
     * @param string|null $id ID du personnage à supprimer
     * @return void
     */
-=======
-        $message = new Message(
-            'Succès',
-            'Personnage ajouté avec succès',
-            'success'
-        );
-        echo $this->templates->render('message', [
-            'message' => $message
-        ]);
-    }
-
-
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 
     public function deletePerso(?string $id): void
     {
@@ -287,15 +236,11 @@ class MainController
         }
     }
 
-<<<<<<< HEAD
     /* Affiche le formulaire d'ajout/édition de personnage
     * @param \Models\Personnage|null $perso Personnage à éditer (null pour ajout)
     * @param int|null $selectedElementId ID de l'élément à pré-sélectionner
     * @return void
     */
-=======
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 
     public function displayAddPerso(?\Models\Personnage $perso = null, ?int $selectedElementId = null): void
     {
@@ -307,7 +252,6 @@ class MainController
             'origins'           => $originDao->getAll(),
             'elements'          => $elementDao->getAll(),
             'unitclasses'       => $unitClassDao->getAll(),
-<<<<<<< HEAD
             'perso'             => $perso,               
             'selectedElementId' => $selectedElementId,   
         ]);
@@ -318,13 +262,6 @@ class MainController
     * @return void
     */
 
-=======
-            'perso'             => $perso,               // null = ajout, sinon = édition
-            'selectedElementId' => $selectedElementId,   // pour pré-sélectionner l’élément
-        ]);
-    }
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function displayEditPerso(int $id): void
     {
         $dao = new PersonnageDAO();
@@ -335,12 +272,7 @@ class MainController
             return;
         }
 
-<<<<<<< HEAD
         $elementId = $dao->getElementIdsByPersonnage($id);
-=======
-        // récup l'élément lié (pour pré-sélection)
-        $elementId = $dao->getElementIdByPersoId($id);
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 
         $originDao = new OriginDAO();
         $elementDao = new ElementDAO();
@@ -355,14 +287,11 @@ class MainController
         ]);
     }
 
-<<<<<<< HEAD
     /* Affiche la page de détails d'un personnage
     * @param int $id ID du personnage à afficher
     * @return void
     */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function displayShowPerso(int $id): void
     {
         $persoDao     = new \Models\PersonnageDAO();
@@ -395,7 +324,6 @@ class MainController
         $personnage->setElements($elements ?? []);
 
         // 5. Rendu
-<<<<<<< HEAD
         $isOwned = false;
         if (\Services\AuthService::isLogged()) {
             $userId = (string)($_SESSION['user']['id'] ?? '');
@@ -404,13 +332,10 @@ class MainController
             }
         }
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
         echo $this->templates->render('show-perso', [
             'personnage' => $personnage,
             'origin'     => $origin,
             'unitClass'  => $unitClass,
-<<<<<<< HEAD
             'isOwned'    => $isOwned,
         ]);
     }
@@ -418,12 +343,6 @@ class MainController
     /* Affiche le formulaire d'ajout d'un élément
     * @return void
     */
-=======
-        ]);
-    }
-
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 
     public function addPersoElement(): void
     {
@@ -432,14 +351,11 @@ class MainController
         ]);
     }
 
-<<<<<<< HEAD
     /* Affiche les logs de l'application
     * @param array $params Paramètres de la requête (fichier sélectionné)
     * @return void
     */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function logs(array $params = []): void
     {
         $files = Logger::listFiles();
@@ -463,7 +379,6 @@ class MainController
             'content'  => $content
         ]);
     }
-<<<<<<< HEAD
     
     /* Gère la connexion utilisateur
     * @return void
@@ -602,26 +517,6 @@ class MainController
     * @param array $params Données du formulaire d'ajout d'origine
     * @return void
     */
-=======
-
-    public function login(): void
-    {
-        echo $this->templates->render('login');
-    }
-
-    public function displayAddOrigin(?\Models\Origin $origin = null, ?Message $message = null): void
-    {
-        $dao = new \Models\OriginDAO();
-
-        echo $this->templates->render('add-origin', [
-            'origin'  => $origin,          // null = ajout, sinon édition
-            'origins' => $dao->getAll(),   // LISTE pour "Existing origins"
-            'message' => $message
-        ]);
-    }
-
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 
     public function addOrigin(array $params): void
     {
@@ -631,12 +526,8 @@ class MainController
         try {
             if ($name === '' || $url === '') {
                 Logger::write('CREATE', 'origin', false, 'validation failed');
-<<<<<<< HEAD
                 Flash::setFromString('Tous les champs sont obligatoires.', HMessage::COLOR_ERROR, 'Erreur');
                 header('Location: index.php?action=add-origin');
-=======
-                header('Location: index.php?action=add-origin&msg=invalid');
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
                 exit;
             }
 
@@ -648,34 +539,22 @@ class MainController
 
             Logger::write('CREATE', 'origin', true, "name={$name}");
 
-<<<<<<< HEAD
             Flash::setFromString('Origine ajoutée.', HMessage::COLOR_SUCCESS, 'Succès');
             header('Location: index.php?action=add-origin');
-=======
-            header('Location: index.php?action=add-origin&msg=created');
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
             exit;
 
         } catch (\Throwable $e) {
             Logger::write('CREATE', 'origin', false, $e->getMessage());
-<<<<<<< HEAD
             Flash::setFromString('Erreur lors de la création.', HMessage::COLOR_ERROR, 'Erreur');
             header('Location: index.php?action=add-origin');
-=======
-            header('Location: index.php?action=add-origin&msg=error');
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
             exit;
         }
     }
 
-<<<<<<< HEAD
     /* Gère l'ajout d'un nouvel élément
     * @param array $params Données du formulaire d'ajout d'élément
     * @return void
     */
-=======
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 
     public function displayAddElement(?\Models\Element $element = null, ?Message $message = null): void
     {
@@ -688,14 +567,11 @@ class MainController
         ]);
     }
 
-<<<<<<< HEAD
     /* Gère l'ajout d'un nouvel élément
     * @param array $params Données du formulaire d'ajout d'élément
     * @return void
     */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function addElement(array $params): void
     {
         $name = trim($params['name'] ?? '');
@@ -704,12 +580,8 @@ class MainController
         try {
             if ($name === '' || $url === '') {
                 Logger::write('CREATE', 'element', false, 'validation failed');
-<<<<<<< HEAD
                 Flash::setFromString('Tous les champs sont obligatoires.', HMessage::COLOR_ERROR, 'Erreur');
                 header('Location: index.php?action=add-element');
-=======
-                header('Location: index.php?action=add-element&msg=invalid');
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
                 exit;
             }
 
@@ -721,34 +593,22 @@ class MainController
 
             Logger::write('CREATE', 'element', true, "name={$name}");
 
-<<<<<<< HEAD
             Flash::setFromString('Élément ajouté.', HMessage::COLOR_SUCCESS, 'Succès');
             header('Location: index.php?action=add-element');
-=======
-            header('Location: index.php?action=add-element&msg=created');
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
             exit;
 
         } catch (\Throwable $e) {
             Logger::write('CREATE', 'element', false, $e->getMessage());
-<<<<<<< HEAD
             Flash::setFromString('Erreur lors de la création.', HMessage::COLOR_ERROR, 'Erreur');
             header('Location: index.php?action=add-element');
-=======
-            header('Location: index.php?action=add-element&msg=error');
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
             exit;
         }
     }
 
-<<<<<<< HEAD
     /* Gère l'ajout d'une nouvelle classe d'unité
     * @param array $params Données du formulaire d'ajout de classe d'unité
     * @return void
     */
-=======
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 
     public function displayAddUnitClass(?\Models\UnitClass $unitClass = null, ?Message $message = null): void
     {
@@ -761,7 +621,6 @@ class MainController
         ]);
     }
 
-<<<<<<< HEAD
     /* Gère l'ajout d'une nouvelle origine
     * @param array $params Données du formulaire d'ajout d'origine
     * @return void
@@ -783,8 +642,6 @@ class MainController
     * @return void
     */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function addUnitClass(array $params): void
     {
         $name = trim($params['name'] ?? '');
@@ -793,12 +650,8 @@ class MainController
         try {
             if ($name === '' || $url === '') {
                 Logger::write('CREATE', 'unitclass', false, 'validation failed');
-<<<<<<< HEAD
                 Flash::setFromString('Tous les champs sont obligatoires.', HMessage::COLOR_ERROR, 'Erreur');
                 header('Location: index.php?action=add-unitclass');
-=======
-                header('Location: index.php?action=add-unitclass&msg=invalid');
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
                 exit;
             }
 
@@ -810,35 +663,22 @@ class MainController
 
             Logger::write('CREATE', 'unitclass', true, "name={$name}");
 
-<<<<<<< HEAD
             Flash::setFromString('Classe ajoutée.', HMessage::COLOR_SUCCESS, 'Succès');
             header('Location: index.php?action=add-unitclass');
-=======
-            header('Location: index.php?action=add-unitclass&msg=created');
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
             exit;
 
         } catch (\Throwable $e) {
             Logger::write('CREATE', 'unitclass', false, $e->getMessage());
-<<<<<<< HEAD
             Flash::setFromString('Erreur lors de la création.', HMessage::COLOR_ERROR, 'Erreur');
             header('Location: index.php?action=add-unitclass');
-=======
-            header('Location: index.php?action=add-unitclass&msg=error');
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
             exit;
         }
     }
 
-<<<<<<< HEAD
     /* Gère la sauvegarde (création ou mise à jour) d'un personnage
     * @param array $data Données du formulaire de personnage
     * @return void
     */
-=======
-
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 
     public function savePerso(array $data): void
     {
@@ -855,25 +695,15 @@ class MainController
         $elements  = $data['elements'] ?? [];
         if (!is_array($elements)) $elements = [$elements];
 
-<<<<<<< HEAD
         // Validations simples
         if ($name === '' || $origin <= 0 || $unitclass <= 0 || $rarity < 1 || $rarity > 6) {
-=======
-        // validations simples
-        if ($name === '' || $origin <= 0 || $unitclass <= 0 || $rarity < 1 || $rarity > 6) {
-            // log FAIL aussi (vu que c’est une action “CREATE/UPDATE” avortée)
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
             Logger::write($id === null ? 'CREATE' : 'UPDATE', 'personnage', false, 'validation failed');
             $this->index("Champs invalides");
             return;
         }
 
         if ($urlImg === '') {
-<<<<<<< HEAD
             $urlImg = null; // Permet de stocker NULL en base si pas d'image
-=======
-            $urlImg = null; // image optionnelle
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
         }
 
         $perso = new Personnage();
@@ -884,10 +714,6 @@ class MainController
         $perso->setImage($urlImg);
 
         try {
-<<<<<<< HEAD
-=======
-            // === INSERT ===
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
             if ($id === null) {
                 $newId = $dao->create($perso);
                 $dao->setElements($newId, $elements);
@@ -897,10 +723,6 @@ class MainController
                 return;
             }
 
-<<<<<<< HEAD
-=======
-            // === UPDATE ===
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
             $perso->setId($id);
             $dao->update($perso);
             $dao->setElements($id, $elements);
@@ -913,16 +735,11 @@ class MainController
         }
     }
 
-<<<<<<< HEAD
     /* Gestion de l'édition d'une origine
     * @param int $id ID de l'origine à éditer
     * @return void
     */
 
-=======
-
-    // ORIGIN DELET ET EDIT ----------------------------------
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function displayEditOrigin(int $id): void
     {
         $dao = new \Models\OriginDAO();
@@ -938,14 +755,11 @@ class MainController
         ]);
     }
 
-<<<<<<< HEAD
     /* Gère la sauvegarde (création ou mise à jour) d'une origine
     * @param array $params Données du formulaire d'origine
     * @return void
     */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function saveOrigin(array $params): void
     {
         $dao = new \Models\OriginDAO();
@@ -966,14 +780,11 @@ class MainController
         }
     }
 
-<<<<<<< HEAD
     /* Gère la suppression d'une origine
     * @param int $id ID de l'origine à supprimer
     * @return void
     */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function deleteOrigin(int $id): void
     {
         $dao = new \Models\OriginDAO();
@@ -987,15 +798,11 @@ class MainController
         $this->index("Origin supprimée");
     }
 
-<<<<<<< HEAD
     /* Gère l'édition d'une classe d'unité
     * @param int $id ID de la classe d'unité à éditer
     * @return void
     */
 
-=======
-    // CLASS DELET ET EDIT ----------------------------------
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function displayEditUnitClass(int $id): void
     {
         $dao = new \Models\UnitClassDAO();
@@ -1010,14 +817,11 @@ class MainController
             'unitClass' => $unitClass
         ]);
     }
-<<<<<<< HEAD
      
     /* Gère la sauvegarde (création ou mise à jour) d'une classe d'unité
     * @param array $params Données du formulaire de classe d'unité
     * @return void
     */
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 
     public function saveUnitClass(array $params): void
     {
@@ -1039,14 +843,11 @@ class MainController
         }
     }
 
-<<<<<<< HEAD
     /* Gère la suppression d'une classe d'unité
     * @param int $id ID de la classe d'unité à supprimer
     * @return void
     */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function deleteUnitClass(int $id): void
     {
         $dao = new \Models\UnitClassDAO();
@@ -1059,16 +860,12 @@ class MainController
         $dao->delete($id);
         $this->index("Classe supprimée");
     }
-<<<<<<< HEAD
 
     /* Gère l'édition d'un élément
     * @param int $id ID de l'élément à éditer
     * @return void
     */
 
-=======
-    // ELEMENT DELET ET EDIT ----------------------------------
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function displayEditElement(int $id): void
     {
         $dao = new \Models\ElementDAO();
@@ -1084,14 +881,11 @@ class MainController
         ]);
     }
 
-<<<<<<< HEAD
     /* Gère la sauvegarde (création ou mise à jour) d'un élément
     * @param array $params Données du formulaire d'élément
     * @return void
     */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function saveElement(array $params): void
     {
         $dao = new \Models\ElementDAO();
@@ -1112,14 +906,11 @@ class MainController
         }
     }
 
-<<<<<<< HEAD
     /* Gère la suppression d'un élément
     * @param int $id ID de l'élément à supprimer
     * @return void
     */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function deleteElement(int $id): void
     {
         $dao = new \Models\ElementDAO();
@@ -1127,7 +918,6 @@ class MainController
         $this->index("Élément supprimé");
     }
 
-<<<<<<< HEAD
     /* Ajoute ou retire un personnage de la collection de l'utilisateur
     * @param int $persoId ID du personnage à ajouter/retirer
     * @return void
@@ -1158,6 +948,4 @@ class MainController
         header('Location: ' . $back);
         exit;
     }
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 }

@@ -2,7 +2,6 @@
 
 namespace Models;
 
-<<<<<<< HEAD
 /*
  * Classe d'accès aux données pour les personnages
  */
@@ -13,10 +12,6 @@ class PersonnageDAO extends BasePDODAO
         $stmt = $this->execRequest('SELECT COUNT(*) FROM personnage');
         return (int)$stmt->fetchColumn();
     }
-=======
-class PersonnageDAO extends BasePDODAO
-{
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function create(Personnage $perso): int
     {
         $sql = "
@@ -176,7 +171,6 @@ class PersonnageDAO extends BasePDODAO
         return $elements;
     }
 
-<<<<<<< HEAD
     public function getElementIdsByPersonnage(int $personnageId): array
     {
         $sql = "
@@ -203,8 +197,6 @@ class PersonnageDAO extends BasePDODAO
     }
 
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     private function hydrate(array $data): Personnage
     {
         $p = new Personnage();

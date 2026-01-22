@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php $this->layout('template', ['title' => 'Connexion']); ?>
 
 <section class="auth-wrap">
@@ -27,22 +26,3 @@
     </form>
   </div>
 </section>
-=======
-<?php 
-$this->layout('template', ['title' => 'Connection']); ?>
-
-<form method="post" action="index.php?action=login">
-    <label>
-        Email :
-        <input type="email" name="email" required>
-    </label>
-
-    <label>
-        Mot de passe :
-        <input type="password" name="password" required>
-    </label>
-
-    <button type="submit">Se connecter</button>
-</form>
-<p>Pas encore de compte ? <a href="index.php?action=register">Inscrivez-vous ici</a></p>
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95

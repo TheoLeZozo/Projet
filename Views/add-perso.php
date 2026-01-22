@@ -6,11 +6,7 @@
 $selectedElementIds = $selectedElementIds ?? [];
 $isEdit = isset($perso) && $perso instanceof \Models\Personnage;
 
-<<<<<<< HEAD
 $pageTitle = $isEdit ? 'Modifier un personnage' : 'Add Perso';
-=======
-$pageTitle = $isEdit ? 'Modifier un personnage' : 'Ajouter un personnage';
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 
 // Force le template (navbar + background + css du home)
 $this->layout('template', [
@@ -56,7 +52,6 @@ $rareClass = 'rare-' . $rarity;
             </div>
 
             <div class="full">
-<<<<<<< HEAD
                 <label for="url_img">Image (chemin en base)</label>
                 <input id="url_img" class="img-path-input" type="text" name="url_img"
                        placeholder="ex: public/img/persos/mario.png"
@@ -118,12 +113,6 @@ $rareClass = 'rare-' . $rarity;
             </div>
 
 
-=======
-                <label for="url_img">Image</label>
-                <input id="url_img" type="text" name="url_img" placeholder="ex: public/img/Mario.webp" value="<?= $this->e($image) ?>">
-            </div>
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
             <div>
                 <label for="origin">Origine</label>
                 <select id="origin" name="origin" required>
@@ -163,7 +152,6 @@ $rareClass = 'rare-' . $rarity;
         </form>
     </div>
 </div>
-<<<<<<< HEAD
 
 
 <script>
@@ -206,5 +194,3 @@ $rareClass = 'rare-' . $rarity;
   }
 })();
 </script>
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95

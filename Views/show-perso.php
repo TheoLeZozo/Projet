@@ -66,7 +66,6 @@
     </div>
 
     <div class="perso-sheet-actions">
-<<<<<<< HEAD
       <?php if (\Services\AuthService::isLogged()): ?>
         <form class="collection-form collection-form-inline" method="post" action="index.php?action=toggle-collection">
           <input type="hidden" name="id" value="<?= (int)$personnage->getId() ?>">
@@ -77,8 +76,6 @@
         </form>
       <?php endif; ?>
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
       <a class="btn" href="index.php?action=edit-perso&id=<?= (int)$personnage->getId() ?>">Edit</a>
 
       <a class="btn btn-danger"

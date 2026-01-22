@@ -2,7 +2,6 @@
 
 namespace Models;
 
-<<<<<<< HEAD
 /*
  * classe DAO pour la gestion des classes d'unités
  */
@@ -14,10 +13,6 @@ class UnitClassDAO extends BasePDODAO
         return (int)$stmt->fetchColumn();
     }
 
-=======
-class UnitClassDAO extends BasePDODAO
-{
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function create(UnitClass $unitClass): int
     {
         $sql = "INSERT INTO unitclass (name, url_img) VALUES (:name, :url_img)";

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 if (!isset($message) || $message === null) return;
 
@@ -40,11 +39,3 @@ $icon = match ($color) {
     </div>
   </div>
 </div>
-=======
-<?php if (!empty($message)): ?>
-    <div class="message <?= $message->getColor() ?>">
-        <h3><?= $message->getTitle() ?></h3>
-        <p><?= $message->getMessage() ?></p>
-    </div>
-<?php endif; ?>
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95

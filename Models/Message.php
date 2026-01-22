@@ -2,14 +2,11 @@
 
 namespace Models;
 
-<<<<<<< HEAD
 /**
  * Class Message
  *
  * simple modele pour les messages
  */
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 class Message
 {
     private string $title;

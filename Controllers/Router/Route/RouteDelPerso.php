@@ -1,19 +1,12 @@
 <?php
 
 namespace Controllers\Router\Route;
-<<<<<<< HEAD
 use Controllers\MainController;
 
 /**
  * Route pour la suppression d'un personnage
  */
 class RouteDelPerso extends ProtectedRoute
-=======
-
-use Controllers\MainController;
-
-class RouteDelPerso extends Route
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 {
     public function __construct(string $actionKey, MainController $controller)
     {

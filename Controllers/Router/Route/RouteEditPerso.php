@@ -1,19 +1,12 @@
 <?php
 
 namespace Controllers\Router\Route;
-<<<<<<< HEAD
 use Controllers\MainController;
 
 /*
  * Route pour l'édition d'un personnage (perso) protégé
  */
 class RouteEditPerso extends ProtectedRoute
-=======
-
-use Controllers\MainController;
-
-class RouteEditPerso extends Route
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 {
     public function __construct(string $actionKey, MainController $controller)
     {

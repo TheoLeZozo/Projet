@@ -5,21 +5,10 @@ $isEdit = isset($unitclass) && $unitclass instanceof \Models\UnitClass && $unitc
 
 $valName = $isEdit ? $unitclass->getName() : '';
 $valImg  = $isEdit ? $unitclass->getUrlImg() : '';
-<<<<<<< HEAD
-=======
-// defaults for new UI features (safe when model doesn't have these properties)
-$valColor = '#6cf4ff';
-$valRarity = $isEdit && method_exists($unitclass, 'getRarity') ? $unitclass->getRarity() : 1;
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 ?>
 
 <div class="page-shell">
   <h1 class="page-title"><?= $isEdit ? 'Edit Class' : 'Add Class' ?></h1>
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
   <div class="form-card">
     <form class="perso-form" method="post" action="index.php?action=<?= $isEdit ? 'edit-unitclass' : 'add-unitclass' ?>">
       <?php if ($isEdit): ?>
@@ -27,7 +16,6 @@ $valRarity = $isEdit && method_exists($unitclass, 'getRarity') ? $unitclass->get
       <?php endif; ?>
 
       <div class="full">
-<<<<<<< HEAD
         <label>Name</label>
         <input name="name" value="<?= $this->e($valName) ?>" required>
       </div>
@@ -76,56 +64,6 @@ $valRarity = $isEdit && method_exists($unitclass, 'getRarity') ? $unitclass->get
       </div>
 
       <button type="submit"><?= $isEdit ? 'Save changes' : 'Add class' ?></button>
-=======
-        <label>Name <span class="hint-icon" data-tip="Le nom doit contenir au moins 3 caractères">?</span></label>
-        <input name="name" value="<?= $this->e($valName) ?>" required minlength="3" aria-describedby="name-help">
-        <div id="name-help" class="validation-error" aria-live="polite" style="display:none">Le nom est trop court.</div>
-      </div>
-
-      <div class="full">
-        <label>Image URL <span class="hint-icon" data-tip="Collez une URL d'image ou déposez un fichier image ci-dessous">?</span></label>
-        <input id="img-url" name="url_img" value="<?= $this->e($valImg) ?>" required aria-describedby="img-help">
-        <div id="img-help" class="validation-error" aria-live="polite" style="display:none">URL invalide ou image introuvable.</div>
-
-        <div class="dropzone" id="dropzone" style="margin-top:12px">Déposez une image ici (drag & drop) ou cliquez pour sélectionner
-          <input id="file-input" type="file" accept="image/*" style="display:none">
-        </div>
-
-        <div style="display:flex;gap:12px;margin-top:12px;align-items:center">
-          <div class="img-preview" id="img-preview">
-            <?php if (!empty($valImg)): ?>
-              <img id="preview-img" src="<?= $this->e($valImg) ?>" alt="Preview">
-            <?php else: ?>
-              <img id="preview-img" src="/Projet/public/img/placeholder.png" alt="Preview">
-            <?php endif; ?>
-          </div>
-
-          <div style="display:flex; flex-direction:column; gap:8px;">
-            <div style="display:flex;gap:8px;align-items:center">
-              <label style="margin:0">Aura color</label>
-              <input id="aura-color" type="color" name="aura_color" value="<?= $this->e($valColor) ?>" title="Couleur d'aura" aria-label="Aura color">
-              <div class="color-preview" id="color-preview" style="background: <?= $this->e($valColor) ?>"></div>
-            </div>
-
-            <div>
-              <label style="margin:0">Rarity <span class="hint-icon" data-tip="Choisissez la rareté (1..6)">?</span></label>
-              <div class="rarity-selector" role="radiogroup" aria-label="Select rarity" data-value="<?= (int)$valRarity ?>">
-                <?php for ($r=1;$r<=6;$r++): ?>
-                  <button type="button" class="<?= (int)$valRarity === $r ? 'active' : '' ?>" data-rarity="<?= $r ?>" aria-checked="<?= (int)$valRarity === $r ? 'true' : 'false' ?>"><?= $r ?></button>
-                <?php endfor; ?>
-              </div>
-              <input type="hidden" name="rarity" id="rarity" value="<?= (int)$valRarity ?>">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="full" style="display:flex;gap:12px;align-items:center">
-        <button type="submit" class="neon-btn"><?= $isEdit ? 'Save changes' : 'Add class' ?></button>
-        <button type="button" id="clear-btn" class="btn btn-ghost">Clear</button>
-        <div style="margin-left:auto;font-size:12px;opacity:.8">Shortcut: <strong>Ctrl+Enter</strong></div>
-      </div>
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     </form>
 
     <div class="perso-show-actions">
@@ -160,7 +98,6 @@ $valRarity = $isEdit && method_exists($unitclass, 'getRarity') ? $unitclass->get
     <?php endif; ?>
   </div>
 </div>
-<<<<<<< HEAD
 
 <script>
 (function () {
@@ -203,5 +140,3 @@ $valRarity = $isEdit && method_exists($unitclass, 'getRarity') ? $unitclass->get
   }
 })();
 </script>
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95

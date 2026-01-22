@@ -2,13 +2,10 @@
 
 namespace Models;
 
-<<<<<<< HEAD
 /**
  * Class Element
  * représente un élément 
  */
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 class Element
 {
     private ?int $id = null;
@@ -19,10 +16,6 @@ class Element
     {
         return $this->id;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function setId(?int $id): void
     {
         $this->id = $id;

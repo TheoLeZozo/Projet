@@ -4,14 +4,11 @@ namespace Models;
 
 class OriginDAO extends BasePDODAO
 {
-<<<<<<< HEAD
     public function countAll(): int
     {
         $stmt = $this->execRequest('SELECT COUNT(*) FROM origin');
         return (int)$stmt->fetchColumn();
     }
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function create(Origin $origin): int
     {
         $sql = "INSERT INTO origin (name, url_img) VALUES (:name, :url_img)";

@@ -1,10 +1,6 @@
 <?php
 $this->layout('template', ['title' => 'Mario Wiki - Element']);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 $isEdit = isset($element) && $element instanceof \Models\Element && $element->getId() !== null;
 
 $valName = $isEdit ? $element->getName() : '';
@@ -26,7 +22,6 @@ $valImg  = $isEdit ? $element->getUrlImg() : '';
       </div>
 
       <div class="full">
-<<<<<<< HEAD
         <label for="url_img">Image (chemin en base)</label>
         <input id="url_img" class="img-path-input" name="url_img" value="<?= $this->e($valImg) ?>" required readonly>
 
@@ -67,10 +62,6 @@ $valImg  = $isEdit ? $element->getUrlImg() : '';
           </div>
           <p class="img-help">Clique une image pour remplir le champ automatiquement.</p>
         </div>
-=======
-        <label>Image URL</label>
-        <input name="url_img" value="<?= $this->e($valImg) ?>" required>
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
       </div>
 
       <button type="submit"><?= $isEdit ? 'Save changes' : 'Add element' ?></button>
@@ -108,7 +99,6 @@ $valImg  = $isEdit ? $element->getUrlImg() : '';
     <?php endif; ?>
   </div>
 </div>
-<<<<<<< HEAD
 
 <script>
 (function () {
@@ -151,5 +141,3 @@ $valImg  = $isEdit ? $element->getUrlImg() : '';
   }
 })();
 </script>
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95

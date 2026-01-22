@@ -22,7 +22,6 @@ $valImg  = $isEdit ? $origin->getUrlImg() : '';
       </div>
 
       <div class="full">
-<<<<<<< HEAD
         <label for="url_img">Image (chemin en base)</label>
         <input id="url_img" class="img-path-input" name="url_img" value="<?= $this->e($valImg) ?>" required readonly>
 
@@ -63,10 +62,6 @@ $valImg  = $isEdit ? $origin->getUrlImg() : '';
           </div>
           <p class="img-help">Clique une image pour remplir le champ automatiquement.</p>
         </div>
-=======
-        <label>Image URL</label>
-        <input name="url_img" value="<?= $this->e($valImg) ?>" required>
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
       </div>
 
       <button type="submit"><?= $isEdit ? 'Save changes' : 'Add origin' ?></button>
@@ -104,7 +99,6 @@ $valImg  = $isEdit ? $origin->getUrlImg() : '';
     <?php endif; ?>
   </div>
 </div>
-<<<<<<< HEAD
 
 <script>
 (function () {
@@ -147,5 +141,3 @@ $valImg  = $isEdit ? $origin->getUrlImg() : '';
   }
 })();
 </script>
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95

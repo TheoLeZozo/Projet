@@ -2,12 +2,9 @@
 
 namespace Models;
 
-<<<<<<< HEAD
 /*
  * Classe représentant une classe d'unité
  */
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 class UnitClass
 {
     private ?int $id = null;

@@ -5,13 +5,10 @@ namespace Controllers;
 use Models\Personnage;
 use Models\PersonnageDAO;
 
-<<<<<<< HEAD
 /*
  * Contrôleur pour la gestion des personnages
  */
 
-=======
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 class PersoController
 {
     /**

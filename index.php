@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 /*
  * Point d'entrée de l'application
  * Initialisation de l'autoloading et du routeur
@@ -8,9 +7,6 @@
  * Version : 1.0
  */
 session_start();
-=======
-
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
 require_once __DIR__ . '/Helpers/Psr4AutoloaderClass.php';
 $loader = new Helpers\Psr4AutoloaderClass();
 

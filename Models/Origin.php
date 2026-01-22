@@ -8,11 +8,7 @@ class Origin
     private string $name;
     private string $urlImg;
 
-<<<<<<< HEAD
     /* getters */
-=======
-    // ---------- GETTERS ----------
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function getId(): ?int
     {
         return $this->id;
@@ -28,11 +24,7 @@ class Origin
         return $this->urlImg;
     }
 
-<<<<<<< HEAD
     /* setters */
-=======
-    // ---------- SETTERS ----------
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function setId(int $id): void
     {
         $this->id = $id;
@@ -48,15 +40,11 @@ class Origin
         $this->urlImg = $urlImg;
     }
 
-<<<<<<< HEAD
     /* hydratation 
     * permet d'initialiser un objet avec un tableau de données
     * @param array $data
     * @return void
     */
-=======
-    // ---------- HYDRATATION ----------
->>>>>>> d069e895e7b001512b0a65d51dca5cc0fa835f95
     public function hydrate(array $data): void
     {
         foreach ($data as $key => $value) {

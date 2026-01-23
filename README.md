@@ -77,11 +77,14 @@ Exemples :
 7. Accéder à :
 
 Pour commencer, vous devez créer un compte : 
-  - Register : Pseudo / mdp / mdp
-Ensuite il suffit de se connecter avec vos identifiants. La première chose à faire est d'ajouter au moins une classe, une origine et un élement pour ensuite
-pouvoir ajouter votre premier personnage. Ceci étant vous pouvez avoir accès à la collection globale de l'application dans le menu Home. Cliquez sur une des
-cartes de n'importe quel personnage pour voir ses données (Id, classe, élements...). A partir de ce menu vous pouvez modifier, supprimer ou encore ajouter puis
-retirer le personnage à votre collection personnelle. 
+  - Register : Pseudo / mdp / mdp.
+  - Ensuite il suffit de se connecter avec vos identifiants. La première chose à faire est d'ajouter au moins une classe, une origine et un élement pour ensuite
+    pouvoir ajouter votre premier personnage. Ceci étant vous pouvez avoir accès à la collection globale de l'application dans le menu Home. Cliquez sur une des
+    cartes de n'importe quel personnage pour voir ses données (Id, classe, élements...). A partir de ce menu vous pouvez modifier, supprimer ou encore ajouter puis
+    retirer le personnage à votre collection personnelle.
+  - Par exemple, vous pouvez commencer par ajouter les classes Plombier, Princesse ou Koopa puis les élements Champignon, Super Etoile ou Fleur de feu et enfin
+    l'origine Royaume Champignon.
+    
 ```
 http://localhost/Projet/
 ```

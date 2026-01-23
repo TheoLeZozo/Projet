@@ -1,6 +1,7 @@
-# Mario Wiki – Projet PHP / MySQL
+# Collection – Projet PHP / MySQL
 
-Projet web réalisé en **PHP** et **MySQL**, visant à créer un **wiki interactif de l’univers Mario** avec gestion des personnages, éléments, origines, classes et collections par utilisateur.
+Projet web réalisé en **PHP** et **MySQL**, visant à créer une **Collection** avec gestion des personnages, éléments, origines, classes et collections par utilisateur.
+Dans ce cas précis il s'agit d'une collection basée sur l'univers Mario, mais cela reste déclinable.
 
 ---
 
@@ -13,7 +14,7 @@ Projet web réalisé en **PHP** et **MySQL**, visant à créer un **wiki interac
 
 ---
 
-## ⚙️ Technologies
+## ⚙️ Languages
 - PHP
 - MySQL (phpMyAdmin)
 - HTML / CSS
@@ -46,7 +47,7 @@ Projet/
 - Relations :
   - personnage ↔ origine
   - personnage ↔ classe
-  - personnage ↔ éléments (many-to-many)
+  - personnage ↔ éléments (N-N)
 - Authentification utilisateur
 - Collection utilisateur
 - Pages protégées
@@ -66,12 +67,21 @@ Exemples :
 
 ## 🚀 Installation
 
-1. Installer WAMP 
-2. Lancer PHPmyadmin
-3. Copier le projet dans `www/` 
-4. Importer la base de données (script ci-dessous)
-5. Configurer la connexion PDO
-6. Accéder à :
+0. Télécharger le projet
+1. Installer le dossier Vendor et coller le à la racine du projet 
+2. Installer WAMP 
+3. Lancer PHPmyadmin, créer le dossier dev.ini dans le dossier Config ou modifier le dossier dev_sample.ini
+4. Compléter par le nom de votre base de donnée et vos identifiants phpMyAdmin
+5. Copier le projet dans `www/` 
+6. Importer la base de données (script ci-dessous)
+7. Accéder à :
+
+Pour commencer, vous devez créer un compte : 
+  - Register : Pseudo / mdp / mdp
+Ensuite il suffit de se connecter avec vos identifiants. La première chose à faire est d'ajouter au moins une classe, une origine et un élement pour ensuite
+pouvoir ajouter votre premier personnage. Ceci étant vous pouvez avoir accès à la collection globale de l'application dans le menu Home. Cliquez sur une des
+cartes de n'importe quel personnage pour voir ses données (Id, classe, élements...). A partir de ce menu vous pouvez modifier, supprimer ou encore ajouter puis
+retirer le personnage à votre collection personnelle. 
 ```
 http://localhost/Projet/
 ```
